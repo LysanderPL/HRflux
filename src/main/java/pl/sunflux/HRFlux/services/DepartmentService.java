@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.sunflux.HRFlux.data.entity.Department;
 import pl.sunflux.HRFlux.data.repository.neo4j.DepartmentRepository;
 import pl.sunflux.HRFlux.rest.dto.departments.CreateDepartmentDto;
-import pl.sunflux.HRFlux.rest.dto.departments.DepartmentDto;
+import pl.sunflux.HRFlux.rest.dto.departments.UpdateDepartmentDto;
 
 @Service
 public class DepartmentService {
@@ -27,15 +27,14 @@ public class DepartmentService {
     }
 
     @Transactional
-    public void updateDepartment(DepartmentDto departmentDto) {
-        Department department = departmentRepository.findOne(departmentDto.getId());
-        department.setName(departmentDto.getName().isEmpty() ? department.getName() : departmentDto.getName());
-        department.setDescription(departmentDto.getDescription().isEmpty() ? department.getDescription() : departmentDto.getDescription());
+    public void updateDepartment(UpdateDepartmentDto updateDepartmentDto) {
+        Department department = departmentRepository.findOne(updateDepartmentDto.getId());
+        department.setName(updateDepartmentDto.getName().isEmpty() ? department.getName() : updateDepartmentDto.getName());
+        department.setDescription(updateDepartmentDto.getDescription().isEmpty() ? department.getDescription() : updateDepartmentDto.getDescription());
 
         departmentRepository.save(department);
     }
 
-    @Transactional
     public void deleteDepartment(Long id) {
         departmentRepository.delete(id);
     }

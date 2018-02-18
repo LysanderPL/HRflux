@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sunflux.HRFlux.rest.dto.departments.CreateDepartmentDto;
-import pl.sunflux.HRFlux.rest.dto.departments.DepartmentDto;
+import pl.sunflux.HRFlux.rest.dto.departments.UpdateDepartmentDto;
 import pl.sunflux.HRFlux.rest.dto.response.EndpointResponse;
 import pl.sunflux.HRFlux.services.DepartmentService;
 
@@ -38,8 +38,8 @@ public class DepartmentsEndpoint {
     @ApiOperation(value = "Update department", response = EndpointResponse.class)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "Department updated successfully")})
     @ResponseStatus(HttpStatus.OK)
-    public EndpointResponse updateDepartment(@RequestBody DepartmentDto departmentDto) {
-        departmentService.updateDepartment(departmentDto);
+    public EndpointResponse updateDepartment(@RequestBody UpdateDepartmentDto updateDepartmentDto) {
+        departmentService.updateDepartment(updateDepartmentDto);
         return new EndpointResponse("Department updated successfully");
     }
 
