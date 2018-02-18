@@ -2,24 +2,28 @@ package pl.sunflux.HRFlux.data.entity;
 
 import lombok.Data;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
 
-import java.util.UUID;
+import java.util.List;
 
-@NodeEntity
 @Data
+@NodeEntity
 public class Department {
 
     @Id
-    private String id;
+    private Long id;
+
     private String name;
 
+    @Relationship(type = "EMPLOYEE_DEPARTMENTS")
+    private List<Employee> departmentEmployees;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -29,5 +33,13 @@ public class Department {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Employee> getDepartmentEmployees() {
+        return departmentEmployees;
+    }
+
+    public void setDepartmentEmployees(List<Employee> departmentEmployees) {
+        this.departmentEmployees = departmentEmployees;
     }
 }

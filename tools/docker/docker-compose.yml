@@ -16,7 +16,7 @@ services:
     links:
      - elastic:elastic
   elastichq:
-    image: davidkarlsen/elasticsearchhq:latest
+    image: kapschtrafficcom/elastichq:latest
     depends_on:
      - elastic
     ports:

@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 @Component
 public class DepartmentDtoFactory {
 
+    private EmployeeDtoFactory employeeDtoFactory;
+
     public DepartmentsDto createDepartmentsDto(List<Department> departments) {
         return new DepartmentsDto(
                 departments.stream()
@@ -21,6 +23,11 @@ public class DepartmentDtoFactory {
     }
 
     public DepartmentDto createDepartmentDto(Department department) {
-        return new DepartmentDto(department.getId(), department.getName());
+        return new DepartmentDto(
+                department.getId(),
+                department.getName(),
+                employeeDtoFactory.createEmployeesDto(department.getDepartmentEmployees())
+        );
     }
+
 }
