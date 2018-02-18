@@ -1,0 +1,24 @@
+version: '3'
+services:
+  elastic:
+    image: aqlx86/elasticsearch-cors:latest
+    ports:
+     - "9200:9200"
+     - "9300:9300"
+  neo4j:
+    image: maciejkruszewski/neo4j-elastic-integration:latest
+    depends_on:
+     - elastic
+    ports:
+     - "7473:7473"
+     - "7474:7474"
+     - "7687:7687"
+    links:
+     - elastic:elastic
+  elastichq:
+    image: davidkarlsen/elasticsearchhq:latest
+    depends_on:
+     - elastic
+    ports:
+     - "80:80"
+     - "443:443"
