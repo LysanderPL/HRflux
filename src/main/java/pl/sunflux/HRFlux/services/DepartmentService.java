@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.sunflux.HRFlux.data.entity.Department;
-import pl.sunflux.HRFlux.data.repository.DepartmentRepository;
+import pl.sunflux.HRFlux.data.repository.neo4j.DepartmentRepository;
 import pl.sunflux.HRFlux.rest.dto.departments.DepartmentDto;
 
 @Service

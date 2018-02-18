@@ -4,6 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
-@EnableElasticsearchRepositories
-public class ElasticsearchConfiguration {
+@EnableElasticsearchRepositories(basePackages = {"pl.sunflux.HRFlux.data.repository.elastic"})
+public class ElasticSearchConfiguration {
 }
