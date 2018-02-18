@@ -26,7 +26,7 @@ public class DepartmentDtoFactory {
         return new DepartmentDto(
                 department.getId(),
                 department.getName(),
-                employeeDtoFactory.createEmployeesDto(department.getDepartmentEmployees())
+                department.getDescription()
         );
     }
 

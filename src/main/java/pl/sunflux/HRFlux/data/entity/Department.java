@@ -18,6 +18,8 @@ public class Department {
 
     private String name;
 
+    private String description;
+
     @Relationship(type = "EMPLOYEE_DEPARTMENTS")
     private List<Employee> departmentEmployees;
 
