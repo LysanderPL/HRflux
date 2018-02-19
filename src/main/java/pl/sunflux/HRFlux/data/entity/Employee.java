@@ -4,19 +4,27 @@ import lombok.Data;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.List;
 
 @Data
 @NodeEntity
+@Document(indexName = "neo4j-index-node", type = "Employee")
 public class Employee {
 
     @Id
     private Long id;
 
     private String name;
-
+    private String secondName;
     private String surname;
+
+    @Relationship(type = "EMPLOYEE_PHONES", direction = Relationship.INCOMING)
+    private List<Phone> employeePhones;
+
+    @Relationship(type = "EMPLOYEE_EMAILS", direction = Relationship.INCOMING)
+    private List<Email> employeeEmails;
 
     @Relationship(type = "EMPLOYEE_DEPARTMENTS", direction = Relationship.INCOMING)
     private List<Department> employeeDepartments;

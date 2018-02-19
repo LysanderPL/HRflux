@@ -18,6 +18,8 @@ public class Department {
 
     private String name;
 
+    private String description;
+
     @Relationship(type = "EMPLOYEE_DEPARTMENTS")
     private List<Employee> departmentEmployees;
 
@@ -43,5 +45,13 @@ public class Department {
 
     public void setDepartmentEmployees(List<Employee> departmentEmployees) {
         this.departmentEmployees = departmentEmployees;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
