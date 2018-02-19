@@ -46,4 +46,12 @@ public class Department {
     public void setDepartmentEmployees(List<Employee> departmentEmployees) {
         this.departmentEmployees = departmentEmployees;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -4,11 +4,13 @@ import lombok.Data;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.List;
 
 @Data
 @NodeEntity
+@Document(indexName = "neo4j-index-node", type = "Position")
 public class Position {
 
     @Id
