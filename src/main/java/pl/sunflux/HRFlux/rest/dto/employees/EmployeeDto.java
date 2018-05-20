@@ -1,14 +1,13 @@
 package pl.sunflux.HRFlux.rest.dto.employees;
 
+import pl.sunflux.HRFlux.data.entity.types.CommunicationPrivacyLevel;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
+import java.util.Map;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class EmployeeDto {
+public abstract class EmployeeDto {
 
-    private String firstName;
+    public abstract List<Map<CommunicationPrivacyLevel, String>> getEmployeePhones();
+
+    public abstract List<Map<CommunicationPrivacyLevel, String>> getEmployeeEmails();
 }
