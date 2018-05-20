@@ -1,4 +1,4 @@
-package pl.sunflux.HRFlux.rest.endpoints;
+package pl.sunflux.HRFlux.rest.endpoints.crud;
 
 
 import io.swagger.annotations.Api;
