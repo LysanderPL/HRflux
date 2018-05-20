@@ -20,5 +20,5 @@ services:
     depends_on:
      - elastic
     ports:
-     - "80:80"
+     - "${ELASTICHQ_PORT}:80"
      - "443:443"
